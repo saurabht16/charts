@@ -27,3 +27,22 @@ class Passenger(models.Model):
     age = models.FloatField()
     ticket_class = models.PositiveSmallIntegerField()
     embarked = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class emp(models.Model):
+    empno = models.IntegerField(primary_key=True)
+    ename = models.CharField(max_length=10)
+    job = models.CharField(max_length=100)
+    mgr = models.IntegerField()
+    hiredate = models.DateField()
+    sal = models.FloatField()
+    comm = models.FloatField()
+
+    class Meta:
+        db_table = 'emp'
+        managed = False
+
+    def __str__(self):
+        return self.ename
